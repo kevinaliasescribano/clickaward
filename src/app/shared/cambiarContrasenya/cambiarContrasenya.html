@@ -1,0 +1,38 @@
+<form class="cambiar-contraseña">
+	<md-toolbar>
+	    <div class="md-toolbar-tools">
+	        <span class="md-headline">Cambio de contraseña</span>
+	        <span flex="" class="flex"></span>
+			<button class="cerrar md-icon-button md-button md-ink-ripple" 
+				type="button" ng-click="cancel()">
+				<i class="fa fa-times"></i>
+		        <div class="md-ripple-container"></div>
+		    </button>
+	    </div>
+	</md-toolbar>
+	<md-dialog-content>
+		<md-input-container>
+			<label>Introduzca contraseña actual</label>
+			<input type="password" ng-model="contrasenya.actual" required>
+		</md-input-container>
+		<md-input-container>
+			<label>Introduzca nueva contraseña</label>
+			<input type="password" ng-model="contrasenya.nueva" required>
+		</md-input-container>
+		<md-input-container>
+			<label>Repita la nueva contraseña</label>
+			<input type="password" ng-model="contrasenya.repetirNueva" required>
+		</md-input-container>
+		<div class="status-msg" ng-show ="msg != '' ">
+			<p class="msg">{{msg}}</p>
+			<span class="discard-msg" ng-click="msg = '' ">
+				<i class="fa fa-times-circle"></i>
+			</span>
+		</div>
+		<button class="md-raised md-primary md-button md-ink-ripple" type="button" 
+			aria-label="Primary" ng-click="cambiarContrasenya()">
+			<span class="ng-scope">Cambiar contraseña</span>
+			<div class="md-ripple-container"></div>
+		</button>
+	</md-dialog-content>
+</form>

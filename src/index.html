@@ -1,0 +1,43 @@
+<html ng-app="app">
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles/styles-min.css"/>
+		<link rel="stylesheet" type="text/css" href="libs/angular-material.min.css"/>
+		<link rel="stylesheet" type="text/css" href="libs/font-awesome/css/font-awesome.min.css"/>
+		<link rel="icon" type="image/png" href="media/img/icono.png">
+		<base href="/">
+	</head>
+	<body>
+		<header>
+			<div layout="column">
+		      <md-toolbar class="headerPrincipal">
+		        <div class="md-toolbar-tools">
+			        <a class="enlace-home" ng-href="/">
+			          	<span class="icono-principal"></span>
+			          	<span class="nombre">ClickWards</span>
+			        </a>
+					<dir-boton-perfil></dir-boton-perfil>
+		        </div>
+		      </md-toolbar>
+		    </div>
+		</header>
+		<section class="content">
+			<div ui-view="main">
+
+			</div>
+		</section>
+		<footer>
+			
+		</footer>
+	</body>
+	<script src="libs/angular.min.js"></script>
+	<script src="libs/angular-ui-router.min.js"></script>
+	<script src="libs/angular-animate.min.js"></script>
+	<script src="libs/angular-aria.min.js"></script>
+	<script src="libs/angular-messages.min.js"></script>
+	<script src="libs/angular-material.min.js"></script>
+	<script src="libs/ocLazyLoad.min.js"></script>
+	<script src="libs/jquery.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="js/app-min.js"></script>
+	<script src="js/scripts-min.js"></script>
+</html>

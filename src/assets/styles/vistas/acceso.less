@@ -1,0 +1,165 @@
+.view-acceso{
+
+
+	.contenedor{
+	    width: 80%;
+	    margin: 0 auto;
+	    overflow:hidden;
+	    height: 565px;
+	    border: solid 1px #cacaca;
+	    margin-top: 50px;
+	    margin-bottom: 50px;
+	    border-radius: 7px;
+	    position:relative;
+		padding: 15px 30px;
+		
+		&.login{
+			.fondo{
+				left:initial;
+				right:0;
+			}
+			.links{
+    			margin-top: 120px;
+    		}	
+    		#fondoMovimiento{
+		    	left: 55%;
+    		}
+		}
+
+		#fondoMovimiento{
+		    width: 160px;
+		    position: absolute;
+		    left: 30px;
+		    bottom: 0;
+		    height: 150px;
+		    z-index: 3;
+	    }
+
+			.fondo{
+				width:50%;
+				z-index: 5;
+				height:100%;
+				position:absolute;
+				top:0;
+				left:0;
+				background: white;
+				background-size: cover;
+
+				.status-msg{
+					width: 70%;
+				    min-height: 50px;
+				    border: solid black 1px;
+				    border-radius: 15px;
+				    position: absolute;
+				    left: 15%;
+				    bottom: 160px;
+				    background: whitesmoke;
+
+				    .discard-msg{
+					    top: 5px;
+					    right: 5px;
+				    }
+
+				    .msg{
+				        word-wrap: break-word;
+    					margin: 15px 30px;
+				    }
+
+				    .conector{
+					    width: 0;
+					    height: 0;
+					    border-left: 15px solid transparent;
+					    border-right: 15px solid transparent;
+					    border-top: 20px solid whitesmoke;
+					    position: absolute;
+					    bottom: -20px;
+					    left: 35px;
+
+					    &.borde{
+							border-left: 16px solid transparent;
+							border-right: 16px solid transparent;
+							border-top: 21px solid black;
+							bottom: -21px;
+							left: 34px;
+					    }
+				    }
+				}
+			}
+
+    		.registro, .login{
+    			width:50%;
+
+    			form{
+    			    max-width: 375px;
+    				margin: 0 auto;
+    			}
+    		}
+
+    		.login{
+    			float:left;
+    		}
+    		.registro{
+    			float:right;
+
+    			.fechaNacimiento{
+    			    position: relative;
+				    display: block;
+				    width: 100%;
+				    height: 30px;
+				    margin: 10px 0;
+
+				    >button{
+				        position: absolute;
+					    right: 0;
+					    padding-top: 0px;
+				    }
+				    >div{
+					    width: 90%;
+					    margin-top: 2px;
+					    margin-left: 0;
+					    padding-left: 2px;
+					    
+				    	input{
+    						width: 100%;
+				    	}
+				    }
+    			}
+    		}
+
+			md-input-container{
+				width:100%;
+			    margin: 10px 0;
+			}
+			.links{
+				text-align:center;
+    			margin-top: -15px;		
+
+				a{
+				    margin: 0;
+				}
+
+				.text-black{
+					color:black;
+				}
+			}
+			
+			.acciones{
+				position: absolute;
+			    width: 50%;
+			    bottom: 40px;
+
+			    &.left{
+			    	left: 0;
+			    }
+
+			    &.right{
+			    	right:0;
+			    }
+
+				button{
+				    margin: 5px auto;
+				    display: block;
+				}
+			}
+		}
+}

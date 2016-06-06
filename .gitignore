@@ -1,0 +1,6 @@
+src/assets/libs
+build
+node_modules
+test
+data/db
+npm-debug.log

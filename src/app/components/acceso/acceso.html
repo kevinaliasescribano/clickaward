@@ -1,0 +1,98 @@
+<div class="view-acceso">
+	<div class="contenedor {{tipoAcceso}}">
+		<canvas id="fondoMovimiento"></canvas>
+		<div class="fondo">
+			<div class="status-msg" ng-show ="error != '' ">
+				<p class="msg">{{error.error}}</p>
+				<span class="discard-msg" ng-click="error = '' ">
+					<i class="fa fa-times-circle"></i>
+				</span>
+				<div class="conector borde"></div>
+			  	<div class="conector"></div>
+			</div>
+		</div>
+		<div class="login">
+			<form name="login">
+				<h2>Iniciar sesión</h2>
+				<p>Para usuarios registrados.</p>
+				<md-input-container>
+					<label>Email</label>
+					<input type="text" ng-model="login.email" required ng-disabled="tipoAcceso!='login'">
+				</md-input-container>
+				<md-input-container>
+					<label>Contraseña</label>
+					<input type="password" ng-model="login.contrasenya" required ng-disabled="tipoAcceso!='login'">
+				</md-input-container>
+				<div class="links">
+					<div class="md-primary md-button md-ink-ripple" ng-click="irRegistro()">
+						<span class="text-black">¿Todavia no tienes cuenta? </span>Registrate
+					</div>
+					<a class="md-primary md-button md-ink-ripple" ng-href="#/recuperar-contrasenya">
+						¿Has olvidado la contraseña?
+					</a>
+				</div>
+				<div class="acciones left">
+					<button class="md-raised md-primary md-button md-ink-ripple" ng-click="iniciarSesion()" type="button">
+						<span class="ng-scope">Iniciar sesión</span>
+						<div class="md-ripple-container"></div>
+					</button>
+				</div>
+			</form>
+		</div>
+		<div class="registro">
+			<form name="registro" ng-model="registro" novalidate>
+				<h2>Registrate</h2>
+				<p>Para empezar a hacer clicks.</p>
+				<md-input-container>
+					<label>Nombre de usuario</label>
+					<input type="text" name="alias" ng-model="alias" required="" ng-disabled="tipoAcceso=='login'">
+					<div ng-messages="registro.alias.$error">
+			          	<div ng-message="required">Este campo es requerido.</div>
+			        </div>
+				</md-input-container>
+				<md-input-container>
+					<label>Email</label>
+					<input type="email" name="email" ng-model="email" email required ng-disabled="tipoAcceso=='login'">
+					<div ng-messages="registro.email.$error">
+			          	<div ng-message="required">Este campo es requerido.</div>
+						<div ng-message="email">Este no es un email valido.</div>
+			        </div>
+				</md-input-container>
+				<div>
+					<md-datepicker ng-model="fechaNacimiento" tabindex="-1"
+					required md-placeholder="Introduzca su fecha de nacimiento" name="fechaNacimiento"
+					class="fechaNacimiento ng-pristine ng-untouched ng-valid ng-isolate-scope ng-valid-mindate ng-valid-maxdate ng-valid-filtered ng-valid-valid" 
+					aria-invalid="false" ng-disabled="tipoAcceso=='login'"></md-datepicker>
+					<div ng-messages="registro.fechaNacimiento.$error">
+			          	<div ng-message="required">Este campo es requerido.</div>
+			        </div>
+			    </div>
+				<md-input-container>
+					<label>Contraseña</label>
+					<input type="password" name="contrasenya" ng-model="contrasenya" required ng-disabled="tipoAcceso=='login'">
+					<div ng-messages="registro.contrasenya.$error">
+			          	<div ng-message="required">Este campo es requerido.</div>
+			        </div>
+				</md-input-container>
+				<md-input-container>
+					<label>Repetir contraseña</label>
+					<input type="password" name="repetirContrasenya" ng-model="repetirContrasenya" required ng-disabled="tipoAcceso=='login'">
+					<div ng-messages="registro.repetirContrasenya.$error">
+			          	<div ng-message="required">Este campo es requerido.</div>
+			        </div>
+				</md-input-container>
+				<div class="links">
+					<div class="md-primary md-button md-ink-ripple" ng-click="irInicioSesion()">
+						<span class="text-black">¿Ya tienes cuenta?, </span>Accede
+					</div>
+				</div>
+				<div class="acciones right">
+					<button class="md-raised md-primary md-button md-ink-ripple" ng-click="registrarse()" type="button">
+						<span class="ng-scope">Resgistrarse</span>
+						<div class="md-ripple-container"></div>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

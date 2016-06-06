@@ -1,0 +1,49 @@
+header{
+	md-toolbar.headerPrincipal{
+		.md-toolbar-tools{
+			margin: 0 auto;
+			max-width: 1200px;
+		}
+	}
+	.enlace-home{
+
+		.icono-principal{
+			background:url("../media/img/icono.png");
+		    height: 50px;
+		    display: inline-block;
+		    width: 50px;
+		    position: absolute;
+		    top: 5px;
+		    background-size: contain;
+		    background-repeat: no-repeat;
+		}
+
+		.nombre{
+			margin-left:50px;
+		}
+	}
+	.perfil{
+	    display: inline-block;
+	    height: 40px;
+	    width: 40px;
+	    text-align: center;
+	    padding-top: 7px;
+	    border: solid 1px;
+	    font-size: 25px;
+	    border-radius: 25px;
+	    float: right;
+    	margin-right: 10px;
+
+    	&:hover{
+    		background: rgba(50, 54, 73, 0.98);
+    	}
+
+    	&.activo{
+   			background: rgba(0, 255, 245, 0.45);
+
+   			&:hover{
+    			background: #4A5A58;
+    		}
+        }
+	}
+}

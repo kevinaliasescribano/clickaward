@@ -1,0 +1,37 @@
+<section class="dialog lightbox">
+	<h1 class="tituloContenido">{{selected.nombre}}</h1>
+	<p class="descripcion">{{selected.descripcion}}</p>
+	<img class="imagenPrincipal" src="{{selected.imagen}}">
+	<h4 class="porcentajeTexto">{{selected.porcentaje}}%</h4>
+	<md-progress-linear md-mode="determinate" value="{{selected.porcentaje}}"></md-progress-linear>
+	<div class="areaPremios" ng-hide="ocultarPremios">
+		<table>
+			<tr>
+				<th>
+					Last
+				</th>
+				<th>
+					Best
+				</th>
+				<th>
+					Random
+				</th>
+			</tr>
+			<tr>
+				<td ng-repeat="premio in premios">
+					<img src="{{premio.imagen}}" alt="premios"></img>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="areaButtons">
+		<a ui-sref="canvas({sala: selected.nombre})">
+			<md-button class="md-raised md-primary">
+				GO!
+			</md-button>
+		</a>
+		<md-button class="md-raised md-warn" ng-click="masInfo()">
+			+info!
+		</md-button>
+	</div>
+</section>

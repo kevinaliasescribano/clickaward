@@ -1,0 +1,304 @@
+<div class="view-admin">
+	<div ng-cloak>
+		<md-content>
+			<md-tabs md-dynamic-height md-border-bottom>
+				<md-tab label="Estadistica">
+					<md-content class="md-padding">
+			          <h1 class="md-display-2">Estadistica</h1>
+			          <table>
+			          	<tr>
+			          		<th></th>
+			          		<th>Sala</th>
+			          		<th>Usuario</th>
+			          		<th>Tipo Premio</th>
+			          	</tr>
+			          	<tr>
+			          		<td><md-button class="md-primary" ng-click="insertarEstadistica()">X</md-button></td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Sala</label>
+			          				<md-select ng-model="nuevaEstadistica.sala" name="sala">
+			          					<md-option ng-repeat="sala in salas" value="{{sala.nombre}}">{{sala.nombre}}</md-option>
+			          				</md-select>
+			          			</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Usuario</label>
+			          				<md-select ng-model="nuevaEstadistica.usuario" name="usuario">
+			          					<md-option ng-repeat="usuario in usuarios" value="{{usuario.alias}}">{{usuario.alias}}</md-option>
+			          				</md-select>
+			          			</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Tipo premio</label>
+				          			<md-select ng-model="nuevaEstadistica.tipoPremio">
+							          <md-option value="1">1</md-option>
+							          <md-option value="2">2</md-option>
+							          <md-option value="3">3</md-option>
+							        </md-select>
+				          		</md-input-container>
+			          		</td>
+			          	</tr>
+			          	<tr ng-repeat="estadistica in estadisticas">
+			          		<td><md-button class="md-warn" ng-click="removeEstadistica(estadistica._id)">X</md-button></td>
+			          		<td>{{estadistica.sala}}</td>
+			          		<td>{{estadistica.usuario}}</td>
+			          		<td>{{estadistica.tipoPremio}}</td>
+			          	</tr>
+			          </table>
+			        </md-content>
+				</md-tab>
+				<md-tab label="Jugada">
+					<md-content class="md-padding">
+			          <h1 class="md-display-2">Jugada</h1>
+			          <table>
+			          	<tr>
+			          		<th></th>
+			          		<th>Sala</th>
+			          		<th>Usuario</th>
+			          		<th>Numero clicks</th>
+			          		<th>Fecha jugada</th>
+			          	</tr>
+			          	<tr>
+			          		<td><md-button class="md-primary" ng-click="insertarJugada()">X</md-button></td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Sala</label>
+			          				<md-select ng-model="nuevaJugada.sala" name="sala">
+			          					<md-option ng-repeat="sala in salas" value="{{sala.nombre}}">{{sala.nombre}}</md-option>
+			          				</md-select>
+			          			</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Usuario</label>
+			          				<md-select ng-model="nuevaJugada.jugador" name="usuario">
+			          					<md-option ng-repeat="usuario in usuarios" value="{{usuario.alias}}">{{usuario.alias}}</md-option>
+			          				</md-select>
+			          			</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Numero clicks</label>
+				          			<input ng-model="nuevaJugada.numeroClicks" name="numeroClicks">
+				          		</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-datepicker ng-model="nuevaJugada.fechaJugada" md-placeholder=""></md-datepicker>
+			          		</td>
+			          	</tr>
+			          	<tr ng-repeat="jugada in jugadas">
+			          		<td><md-button class="md-warn" ng-click="removeJugada(jugada._id)">X</md-button></td>
+			          		<td>{{jugada.sala}}</td>
+			          		<td>{{jugada.jugador}}</td>
+			          		<td>{{jugada.numeroClicks}}</td>
+			          		<td>{{jugada.fechaJugada}}</td>
+			          	</tr>
+			          </table>
+			        </md-content>
+				</md-tab>
+				<md-tab label="Premio">
+					<md-content class="md-padding">
+			          <h1 class="md-display-2">Premio</h1>
+			          <table>
+			          	<tr>
+			          		<th></th>
+			          		<th>Sala</th>
+			          		<th>Imagen</th>
+			          		<th>Tipo</th>
+			          	</tr>
+			          	<tr>
+			          		<td><md-button class="md-primary" ng-click="insertarPremio()">X</md-button></td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Sala</label>
+			          				<md-select ng-model="nuevoPremio.sala" name="sala">
+			          					<md-option ng-repeat="sala in salas" value="{{sala.nombre}}">{{sala.nombre}}</md-option>
+			          				</md-select>
+			          			</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Imagen</label>
+			          				<input ng-model="nuevoPremio.imagen" name="imagen">
+			          			</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Tipo</label>
+				          			<md-select ng-model="nuevoPremio.tipo">
+							          <md-option value="1">1</md-option>
+							          <md-option value="2">2</md-option>
+							          <md-option value="3">3</md-option>
+							        </md-select>
+				          		</md-input-container>
+			          		</td>
+			          	</tr>
+			          	<tr ng-repeat="premio in premios">
+			          		<td><md-button class="md-warn" ng-click="removePremio(premio._id)">X</md-button></td>
+			          		<td>{{premio.sala}}</td>
+			          		<td>{{premio.imagen}}</td>
+			          		<td>{{premio.tipo}}</td>
+			          	</tr>
+			          </table>
+			        </md-content>
+				</md-tab>
+				<md-tab label="Sala">
+					<md-content class="md-padding">
+			          <h1 class="md-display-2">Sala</h1>
+			          <table>
+			          	<tr>
+			          		<th></th>
+			          		<th>Nombre</th>
+			          		<th>Descripcion</th>
+			          		<th>Objetivo</th>
+			          		<th>Progreso</th>
+			          		<th>Estado</th>
+			          		<th>Importancia</th>
+			          		<th>Imagen</th>
+			          		<th>Fecha Creacion</th>
+			          	</tr>
+			          	<tr>
+			          		<td><md-button class="md-primary" ng-click="insertarSala()">X</md-button></td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Nombre</label>
+			          				<input ng-model="nuevaSala.nombre" name="nombre">
+			          			</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Descripcion</label>
+			          				<input ng-model="nuevaSala.descripcion" name="descripcion">
+			          			</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Objetivo</label>
+			          				<input ng-model="nuevaSala.objetivoClicks" name="objetivoClicks">
+			          			</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Progreso</label>
+			          				<input ng-model="nuevaSala.clicksActuales" name="clicksActuales">
+			          			</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Estado</label>
+				          			<md-select ng-model="nuevaSala.estado">
+							          <md-option value="Finalizada">Finalizada</md-option>
+							          <md-option value="Activa">Activa</md-option>
+							        </md-select>
+				          		</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Importancia</label>
+				          			<md-select ng-model="nuevaSala.importancia">
+							          <md-option value="1">1</md-option>
+							          <md-option value="2">2</md-option>
+							          <md-option value="3">3</md-option>
+							        </md-select>
+				          		</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Imagen</label>
+			          				<input ng-model="nuevaSala.imagen" name="imagen">
+			          			</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-datepicker ng-model="nuevaSala.fechaCreacion" md-placeholder=""></md-datepicker>
+			          		</td>
+			          	</tr>
+			          	<tr ng-repeat="sala in salas">
+			          		<td><md-button class="md-warn" ng-click="removeSala(sala._id)">X</md-button></td>
+			          		<td>{{sala.nombre}}</td>
+			          		<td>{{sala.descripcion}}</td>
+			          		<td>{{sala.objetivoClicks}}</td>
+			          		<td>{{sala.clicksActuales}}</td>
+			          		<td>{{sala.estado}}</td>
+			          		<td>{{sala.importancia}}</td>
+			          		<td>{{sala.imagen}}</td>
+			          		<td>{{sala.fechaCreacion}}</td>
+			          	</tr>
+			          </table>
+			        </md-content>
+				</md-tab>
+				<md-tab label="Usuario">
+					<md-content class="md-padding">
+			          <h1 class="md-display-2">Usuario</h1>
+			          <table>
+			          	<tr>
+			          		<th></th>
+			          		<th>Alias</th>
+			          		<th>Email</th>
+			          		<th>Contraseña</th>
+			          		<th>Icono</th>
+			          		<th>Fecha Nacimiento</th>
+			          		<th>Cuenta activa</th>
+			          		<th>Fecha Registro</th>
+			          	</tr>
+			          	<tr>
+			          		<td><md-button class="md-primary" ng-click="insertarUsuario()">X</md-button></td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Alias</label>
+			          				<input ng-model="nuevoUsuario.alias" name="alias">
+			          			</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Email</label>
+			          				<input ng-model="nuevoUsuario.email" name="email">
+			          			</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Contraseña</label>
+			          				<input ng-model="nuevoUsuario.contrasenya" name="contrasenya">
+			          			</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Icono</label>
+			          				<input ng-model="nuevoUsuario.icono" name="icono">
+			          			</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-datepicker ng-model="nuevoUsuario.fechaNacimiento" md-placeholder=""></md-datepicker>
+			          		</td>
+			          		<td>
+			          			<md-input-container class="md-block">
+			          				<label>Activa</label>
+				          			<md-select ng-disabled="true" ng-model="nuevoUsuario.cuentaActiva">
+							          <md-option value="true">Si</md-option>
+							          <md-option selected value="false">No</md-option>
+							        </md-select>
+				          		</md-input-container>
+			          		</td>
+			          		<td>
+			          			<md-datepicker ng-model="nuevoUsuario.fechaRegistro" md-placeholder=""></md-datepicker>
+			          		</td>
+			          	</tr>
+			          	<tr ng-repeat="usuario in usuarios">
+			          		<td><md-button class="md-warn" ng-click="removeUsuario(usuario._id)">X</md-button></td>
+			          		<td>{{usuario.alias}}</td>
+			          		<td>{{usuario.email}}</td>
+			          		<td>{{usuario.contrasenya}}</td>
+			          		<td>{{usuario.icono}}</td>
+			          		<td>{{usuario.fechaNacimiento}}</td>
+			          		<td>{{usuario.cuentaActiva}}</td>
+			          		<td>{{usuario.fechaRegistro}}</td>
+			          	</tr>
+			          </table>
+			        </md-content>
+				</md-tab>
+			</md-tabs>
+		</md-content>
+	</div>
+</div>

@@ -1,0 +1,56 @@
+<div class="view-perfil">
+	<md-card>
+		<md-card-title>
+			<span class="editar-perfil" ng-click="permitirEdicion()" ng-show="noEditable">
+				<i class="fa fa-pencil-square-o"></i>
+				Editar perfil
+			</span>
+			<md-card-title-text>
+				<span class="md-headline">Perfil de usuario</span>
+				<form>
+					<md-input-container>
+						<label>Alias</label>
+						<input type="text" ng-disabled="noEditable"
+							ng-model="credenciales.alias" required>
+						<i class="fa fa-pencil" ng-hide="noEditable"></i>
+					</md-input-container>
+					<md-input-container>
+						<label>Email</label>
+						<input type="text" ng-disabled="noEditable" 
+							ng-model="credenciales.email" required>
+						<i class="fa fa-pencil" ng-hide="noEditable"></i>
+					</md-input-container>
+					<div ng-show="msg != '' " class="status-msg">
+						<p>{{msg}}</p>
+						<span class="discard-msg" ng-click="msg = '' ">
+							<i class="fa fa-times-circle"></i>
+						</span>
+					</div>
+
+					<div class="acciones" ng-hide="noEditable">
+						<button class="md-raised md-primary md-button md-ink-ripple" type="button" aria-label="Primary" ng-click="actualizarUsuario()">
+							<span class="ng-scope">Actualizar perfil</span>
+							<div class="md-ripple-container"></div>
+						</button>
+						<button class="md-raised md-primary md-button md-ink-ripple" type="button" aria-label="Primary" ng-click="mostrarOpcionesContrasenya()">
+							<span class="ng-scope">Cambiar contraseña</span>
+							<div class="md-ripple-container"></div>
+						</button>
+					</div>
+				</form>
+			</md-card-title-text>
+			<md-card-title-media>
+				<div class="md-media-lg card-media">
+					<img ng-src="{{credenciales.logo}}" class="md-card-image" alt="">
+				</div>
+				<input type="file" ng-hide="noEditable" ng-model="credenciales.logoNuevo">
+			</md-card-title-media>
+		</md-card-title>
+		<md-card-actions layout="row" layout-align="end center" class="layout-align-end-center layout-row">
+			<button class="md-button md-ink-ripple" type="button" ng-click="cerrarSesion()" aria-label="Cerrar sesion">
+				<i class="fa fa-times-circle"></i>
+				<span class="ng-scope">Cerrar sesión</span>
+			</button>
+		</md-card-actions>
+	</md-card>
+</div>

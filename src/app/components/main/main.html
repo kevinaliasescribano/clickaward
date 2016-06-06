@@ -1,0 +1,46 @@
+<div class="view-main">
+	<md-content>
+        <md-input-container>
+        	<label>Importancia</label>
+    	</md-input-container>
+		<md-fab-speed-dial md-open="speedDial.open" md-direction="{{speedDial.direction}}" ng-class="speedDial.mode">
+	        <md-fab-actions>
+	          <md-button aria-label="Todos" class="md-fab md-raised md-mini importancia imp0" ng-click="setRelevance('')" ng-class="{'selected': relevance.importancia == '' || relevance.importancia == undefined}">
+	            <md-tooltip md-direction="bottom">
+		          Todos
+		        </md-tooltip>
+	          </md-button>
+	          <md-button aria-label="Facebook" class="md-fab md-raised md-mini importancia imp3" ng-click="setRelevance(1)" ng-class="{'selected':relevance.importancia == 1}">
+	            <md-tooltip md-direction="bottom">
+		          Baja
+		        </md-tooltip>
+	          </md-button>
+	          <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini importancia imp2" ng-click="setRelevance(2)" ng-class="{'selected':relevance.importancia == 2}">
+	            <md-tooltip md-direction="bottom">
+		          Media
+		        </md-tooltip>
+	          </md-button>
+	          <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini importancia imp1" ng-click="setRelevance(3)" ng-class="{'selected':relevance.importancia == 3}">
+	            <md-tooltip md-direction="bottom">
+		          Alta
+		        </md-tooltip>
+	          </md-button>
+	        </md-fab-actions>
+      	</md-fab-speed-dial>
+ 	 	<md-input-container>
+ 	 		<label>Titulo</label>
+        	<input ng-model="relevance.nombre"/>
+ 	 	</md-input-container>
+
+ 	 	<dir-range-slider></dir-range-slider>
+
+		<md-grid-list md-cols-gt-md="8" md-cols-md="6" md-cols-sm="4" md-row-height-gt-md="1:1" md-row-height="1:1">
+	        <md-grid-tile ng-repeat="dato in data | filter:relevance | rangeFilter:rangeInfo" md-rowspan="{{dato.importancia}}" md-colspan="{{dato.importancia}}" md-colspan-sm="1" class="background">
+	          <md-button class="listMainButton" ng-click="showDialog(dato.nombre)">
+	            <img ng-src="{{dato.imagen}}">
+	            <md-progress-linear md-mode="determinate" class="progresoPartida"value="{{dato.porcentaje}}"></md-progress-linear>
+	          </md-button>
+        	</md-grid-tile>
+      	</md-grid-list>
+    </md-content>
+</div>
